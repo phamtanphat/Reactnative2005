@@ -15,9 +15,7 @@ export default class Loop extends Component {
                         <Text style={{color : 'red'}}>{monhoc[3]}</Text>,
                     ]
                 } */}
-                {monhoc.map(function(subject){
-                    return <Text>{subject}</Text>
-                })}
+                {/* {monhoc.map(subject => <Text>{subject}</Text>)} */}
             </View>
         )
     }

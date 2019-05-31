@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View , ScrollView} from 'react-native';
 import Word from './components/Word';
 import Loop from './components/Loop';
 
@@ -16,15 +16,19 @@ const words = [
   {en:"Two" , vn:"Hai" , isMemorized : false },
   {en:"Three" , vn:"Ba" , isMemorized : false },
   {en:"Four" , vn:"Bon" , isMemorized : false },
-  {en:"Five" , vn:"Nam" , isMemorized : true }
+  {en:"Five" , vn:"Nam" , isMemorized : true },
+  {en:"Six" , vn:"Sau" , isMemorized : false },
 ]
-
-
 export default class App extends Component {
   render() {
     return (
       <View>
-        <Loop/>
+        <ScrollView>
+          {words.map(function(word){
+              return <Word word={word}/>
+          })}
+        </ScrollView>
+        
       </View>
     );
   }

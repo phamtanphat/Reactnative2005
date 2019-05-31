@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View , TouchableOpacity} from 'react-native';
+import {Text, View , ScrollView , TouchableOpacity , Dimensions} from 'react-native';
 
 export default class Word extends Component {
     // checkMemorized(){
@@ -10,32 +10,33 @@ export default class Word extends Component {
     //     }
     // }
     render() {
-        //destructuring
-        //isMemorized : button forgot mau xanh || button isMemorized mau do
-        
-        const {vn,en,isMemorized} = this.props.word
+        const {en , vn , isMemorized} = this.props.word
+        const DeviceWidth = Dimensions.get('window').width
+        const DeviceHeight = Dimensions.get('window').height
         return (
-            <View style={{flexDirection : 'column' }}>
-                <View style={{flexDirection : 'row' , justifyContent : 'space-around' , alignItems : 'center'}}>
-                    <Text style={{color : 'green' , fontSize : 20}}>{en}</Text>
-                    <Text style={{color : 'red' , fontSize : 20}}>{isMemorized ? "----" : vn}</Text>
+            <View style={{flex : 1 , flexDirection : 'column' , height : DeviceHeight * 0.2 , margin : 10 , backgroundColor : 'gainsboro' , padding : 10 , borderRadius : 5}}>
+                <View style={{flexDirection : 'row' , justifyContent : 'space-around' , paddingBottom : 5}}>
+                    <Text style={{fontSize : 30 , color :  'green' }}>{en}</Text>
+                    <Text 
+                        style={{fontSize : 30 , color :  'red' }}>
+                            {isMemorized ? "----" : vn}
+                    </Text>
                 </View>
-                
-                <View style={{flexDirection : 'row' , justifyContent : 'space-around' , alignItems : 'center'}}>
+                <View style={{flexDirection : 'row' , justifyContent : 'space-around' , paddingBottom : 5}}>
                     <TouchableOpacity
-                        style={{backgroundColor : isMemorized ? 'green' : 'red' , padding : 10 , borderRadius : 5}}
+                        style={{backgroundColor : isMemorized ? "green" : "red" , padding : 10 , borderRadius : 5}}
                     >
                         <Text style={{fontSize : 20 , color : 'white'}}>{isMemorized ? "Forgot" : "isMemorized"}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={{backgroundColor : 'yellow' , padding : 10 , borderRadius : 5}}
+                        style={{backgroundColor : "orange" , padding : 10 , borderRadius : 5}}
                     >
-                        <Text>Remove</Text>
+                        <Text style={{fontSize : 25 , color :  'white' }}>Remove</Text>
                     </TouchableOpacity>
                 </View>
                 
             </View>
-        );
+        )
     }
   }
 
