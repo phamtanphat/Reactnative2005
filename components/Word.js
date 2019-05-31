@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View , ScrollView , TouchableOpacity , Dimensions} from 'react-native';
+import {Text, View  , TouchableOpacity , Dimensions} from 'react-native';
 
 export default class Word extends Component {
     // checkMemorized(){
