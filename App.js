@@ -16,8 +16,8 @@ import Box from './components/Box';
 export default class App extends Component {
   render() {
     return (
-      <View style={{flex : 1 , justifyContent : 'center' , alignItems : 'center'}}>
-        <Box/>
+      <View style={{flex : 1 }}>
+        <List/>
       </View>
     );
   }

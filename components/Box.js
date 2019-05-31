@@ -21,13 +21,15 @@ export default class Box extends Component {
                     </TouchableOpacity>
 
                     <TouchableOpacity
-                    style={{backgroundColor : 'red' , padding : 10 , borderRadius : 5}}
+                        style={{backgroundColor : 'red' , padding : 10 , borderRadius : 5}}
+                        onPress={() => this.setState({value : this.state.value - 1 })}
                     >
                     <Text style={{color : 'white' , fontSize : 20}}>Descrease</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity
                     style={{backgroundColor : 'indigo' , padding : 10 , borderRadius : 5}}
+                    onPress={() => this.setState({value : 0 })}
                     >
                     <Text style={{color : 'white' , fontSize : 20}}>Reset</Text>
                     </TouchableOpacity>
