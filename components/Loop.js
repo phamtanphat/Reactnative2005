@@ -7,7 +7,17 @@ export default class Loop extends Component {
     render() {
         return (
             <View>
-                <Text> Php </Text>
+                {/* {
+                    [
+                        <Text style={{color : 'red'}}>{monhoc[0]}</Text>,
+                        <Text style={{color : 'red'}}>{monhoc[1]}</Text>,
+                        <Text style={{color : 'red'}}>{monhoc[2]}</Text>,
+                        <Text style={{color : 'red'}}>{monhoc[3]}</Text>,
+                    ]
+                } */}
+                {monhoc.map(function(subject){
+                    return <Text>{subject}</Text>
+                })}
             </View>
         )
     }
