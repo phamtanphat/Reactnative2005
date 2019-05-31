@@ -11,6 +11,8 @@ export default class Word extends Component {
     // }
     render() {
         //destructuring
+        //isMemorized : button forgot mau xanh || button isMemorized mau do
+        
         const {vn,en,isMemorized} = this.props.word
         return (
             <View style={{flexDirection : 'column' }}>
@@ -21,9 +23,9 @@ export default class Word extends Component {
                 
                 <View style={{flexDirection : 'row' , justifyContent : 'space-around' , alignItems : 'center'}}>
                     <TouchableOpacity
-                        style={{backgroundColor : 'green' , padding : 10 , borderRadius : 5}}
+                        style={{backgroundColor : isMemorized ? 'green' : 'red' , padding : 10 , borderRadius : 5}}
                     >
-                        <Text style={{fontSize : 20 , color : 'white'}}>Forgot</Text>
+                        <Text style={{fontSize : 20 , color : 'white'}}>{isMemorized ? "Forgot" : "isMemorized"}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{backgroundColor : 'yellow' , padding : 10 , borderRadius : 5}}
