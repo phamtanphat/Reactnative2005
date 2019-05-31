@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View , TouchableOpacity} from 'react-native';
 
 export default class Word extends Component {
     // checkMemorized(){
@@ -13,9 +13,25 @@ export default class Word extends Component {
         //destructuring
         const {vn,en,isMemorized} = this.props.word
         return (
-            <View style={{flexDirection : 'row' , justifyContent : 'space-around'}}>
-                <Text style={{color : 'green' , fontSize : 20}}>{en}</Text>
-                <Text style={{color : 'red' , fontSize : 20}}>{isMemorized ? "----" : vn}</Text>
+            <View style={{flexDirection : 'column' }}>
+                <View style={{flexDirection : 'row' , justifyContent : 'space-around' , alignItems : 'center'}}>
+                    <Text style={{color : 'green' , fontSize : 20}}>{en}</Text>
+                    <Text style={{color : 'red' , fontSize : 20}}>{isMemorized ? "----" : vn}</Text>
+                </View>
+                
+                <View style={{flexDirection : 'row' , justifyContent : 'space-around' , alignItems : 'center'}}>
+                    <TouchableOpacity
+                        style={{backgroundColor : 'green' , padding : 10 , borderRadius : 5}}
+                    >
+                        <Text style={{fontSize : 20 , color : 'white'}}>Forgot</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={{backgroundColor : 'yellow' , padding : 10 , borderRadius : 5}}
+                    >
+                        <Text>Remove</Text>
+                    </TouchableOpacity>
+                </View>
+                
             </View>
         );
     }
