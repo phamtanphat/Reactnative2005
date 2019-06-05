@@ -93,9 +93,11 @@ export default class List extends Component {
                                             vn : this.state.txtvn,
                                             isMemorized : false
                                         }
-                                        const newWords = this.state.words
+                                        const newWords = Object.assign([], this.state.words)
                                         newWords.unshift(word)
+                                        
                                         this.setState({words : newWords})
+                                        
                                     }}
                                 >
                                     <Text style={{fontSize : DeviceWidth * 0.08 , color : 'white' }}>Add word</Text>
