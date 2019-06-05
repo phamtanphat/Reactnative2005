@@ -1,6 +1,6 @@
 // ctrl + space : goi y code
 import React, { Component } from 'react'
-import { Text, View , ScrollView , Dimensions , TouchableOpacity} from 'react-native'
+import { Text, View , ScrollView , Dimensions , TouchableOpacity , TextInput} from 'react-native'
 import Word from './Word';
 
 const DeviceWidth = Dimensions.get('window').width
@@ -65,10 +65,39 @@ export default class List extends Component {
     render() {
        
         return (
-            <View>
+            <View style={{flex : 1}}>
                 <ScrollView>
-                    {this.state.words.map(word => this.getWordItem(word))}
+                    <View style={{flex : 1}}>
+                        <View style={{justifyContent : 'center' , alignItems : 'center'}}>
+                            <View style={{flexDirection : 'column' , backgroundColor : 'gainsboro' , padding : 10 , justifyContent : 'center' ,  alignItems : 'center'  }}>
+                                <TextInput 
+                                    style={{height: DeviceWidth  * 0.15 , width : DeviceWidth * 0.7, backgroundColor: 'white', borderRadius :2 , paddingLeft : DeviceWidth * 0.05 , marginBottom : DeviceWidth * 0.03  , fontSize : 20}}
+                                    placeholder="English"
+                                    value={this.state.txten}
+                                    onChangeText={(text) => this.setState({txten : text})}/>
+                                <TextInput 
+                                    style={{height: DeviceWidth  * 0.15 , width : DeviceWidth * 0.7, backgroundColor: 'white', borderRadius :2 , paddingLeft : DeviceWidth * 0.05 , fontSize : 20}}
+                                    placeholder="Vietnamese"
+                                    value={this.state.txtvn}
+                                    onChangeText={(text) => this.setState({txtvn : text})}/>
+                                </View>
 
+                            <View style={{flexDirection : "row" , marginTop : DeviceWidth * 0.01 , alignItems : "center"}}>
+                                <TouchableOpacity
+                                    style={{backgroundColor : "#218838" , padding : 10 , borderRadius : 8 , marginRight : DeviceWidth * 0.03}}
+                                >
+                                    <Text style={{fontSize : DeviceWidth * 0.08 , color : 'white' }}>Add word</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity
+                                    style={{backgroundColor : "#C82333", padding : 10 , borderRadius : 8}}
+                                >
+                                    <Text style={{fontSize : DeviceWidth * 0.08 , color : 'white'}}>Cancel</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        {this.state.words.map(word => this.getWordItem(word))}
+                    </View>
+                    
                 </ScrollView>
             </View>
         )
