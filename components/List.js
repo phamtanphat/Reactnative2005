@@ -17,7 +17,9 @@ export default class List extends Component {
                 {id : "a4" ,en:"Four" , vn:"Bon" , isMemorized : false },
                 {id : "a5" ,en:"Five" , vn:"Nam" , isMemorized : true },
                 {id : "a6" ,en:"Six" , vn:"Sau" , isMemorized : false },
-            ]
+            ],
+            txten : '',
+            txtvn : ''
         }
     }
     getWordItem(word){
@@ -63,7 +65,6 @@ export default class List extends Component {
         )
     }
     render() {
-       
         return (
             <View style={{flex : 1}}>
                 <ScrollView>
@@ -85,6 +86,17 @@ export default class List extends Component {
                             <View style={{flexDirection : "row" , marginTop : DeviceWidth * 0.01 , alignItems : "center"}}>
                                 <TouchableOpacity
                                     style={{backgroundColor : "#218838" , padding : 10 , borderRadius : 8 , marginRight : DeviceWidth * 0.03}}
+                                    onPress={() => {
+                                        const word = {
+                                            id : Math.random(),
+                                            en : this.state.txten,
+                                            vn : this.state.txtvn,
+                                            isMemorized : false
+                                        }
+                                        const newWords = this.state.words
+                                        newWords.unshift(word)
+                                        this.setState({words : newWords})
+                                    }}
                                 >
                                     <Text style={{fontSize : DeviceWidth * 0.08 , color : 'white' }}>Add word</Text>
                                 </TouchableOpacity>
