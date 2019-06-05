@@ -10,14 +10,16 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View } from 'react-native';
 import List from './components/List';
 import Box from './components/Box';
+import Form from './components/Form';
+
 
 
 
 export default class App extends Component {
   render() {
     return (
-      <View style={{flex : 1 }}>
-        <List/>
+      <View style={{flex : 1 , justifyContent : 'center' , alignItems : 'center'}}>
+        <Form/>
       </View>
     );
   }
