@@ -17,11 +17,16 @@ export default class Form extends PureComponent {
                     <View style={{flexDirection : 'column' , backgroundColor : 'gainsboro' , padding : 10 , justifyContent : 'center' ,  alignItems : 'center'  }}>
                         <TextInput 
                             style={{height: DeviceWidth  * 0.15 , width : DeviceWidth * 0.7, backgroundColor: 'white', borderRadius :2 , paddingLeft : DeviceWidth * 0.05 , marginBottom : DeviceWidth * 0.03  , fontSize : 20}}
-                            placeholder="English"/>
+                            placeholder="English"
+                            value={this.state.txten}
+                            onChangeText={(text) => this.setState({txten : text})}/>
                         <TextInput 
                             style={{height: DeviceWidth  * 0.15 , width : DeviceWidth * 0.7, backgroundColor: 'white', borderRadius :2 , paddingLeft : DeviceWidth * 0.05 , fontSize : 20}}
-                            placeholder="Vietnamese"/>
+                            placeholder="Vietnamese"
+                            value={this.state.txtvn}
+                            onChangeText={(text) => this.setState({txtvn : text})}/>
                         </View>
+
                     <View style={{flexDirection : "row" , marginTop : DeviceWidth * 0.01 , alignItems : "center"}}>
                         <TouchableOpacity
                             style={{backgroundColor : "#218838" , padding : 10 , borderRadius : 8 , marginRight : DeviceWidth * 0.03}}
