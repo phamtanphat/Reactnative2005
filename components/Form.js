@@ -12,7 +12,7 @@ export default class Form extends PureComponent {
     }
     render() {
         return (
-            <View style={{flexDirection : 'column' , justifyContent : 'center' , alignItems : 'center'}}>
+            <View style={{flex : 1 ,flexDirection : 'column' , justifyContent : 'center' , alignItems : 'center'}}>
                 <View>
                     <View style={{flexDirection : 'column' , backgroundColor : 'gainsboro' , padding : 10 , justifyContent : 'center' ,  alignItems : 'center'  }}>
                         <TextInput 

@@ -18,7 +18,7 @@ import Form from './components/Form';
 export default class App extends Component {
   render() {
     return (
-      <View style={{flex : 1 , justifyContent : 'center' , alignItems : 'center'}}>
+      <View style={{flex : 1 }}>
         <Form/>
       </View>
     );
