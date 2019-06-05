@@ -95,7 +95,6 @@ export default class List extends Component {
                                         }
                                         const newWords = Object.assign([], this.state.words)
                                         newWords.unshift(word)
-                                        
                                         this.setState({words : newWords})
                                         
                                     }}
