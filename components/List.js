@@ -23,7 +23,7 @@ export default class List extends Component {
         return (
             <View>
                 <ScrollView>
-                    {this.state.words.map(function(word){
+                    {this.state.words.map(word =>{
                         return (
                             <View 
                                 key={word.id}
@@ -32,17 +32,31 @@ export default class List extends Component {
                                     <Text style={{fontSize : 30 , color :  'green' }}>{word.en}</Text>
                                     <Text 
                                         style={{fontSize : 30 , color :  'red' }}>
-                                            {word.isMemorized ? "----" : word.vn}
+                                        {word.isMemorized ? "----" : word.vn}
                                     </Text>
                                 </View>
                                 <View style={{flexDirection : 'row' , justifyContent : 'space-around' , paddingBottom : 5}}>
                                     <TouchableOpacity
                                         style={{backgroundColor : word.isMemorized ? "green" : "red" , padding : 10 , borderRadius : 5}}
+                                        onPress={() => {
+                                            const newWords = this.state.words.map(w => {
+                                                if(w.id !== word.id) return w
+                                                return {...w, isMemorized : !w.isMemorized}
+                                            })
+                                            this.setState({words : newWords})
+                                        }}
                                     >
                                         <Text style={{fontSize : 20 , color : 'white'}}>{word.isMemorized ? "Forgot" : "isMemorized"}</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         style={{backgroundColor : "orange" , padding : 10 , borderRadius : 5}}
+                                        onPress={() => {
+                                            const newWords = this.state.words.filter(function(w){
+                                                if(w.id !== word.id) return true
+                                                return false
+                                            })
+                                            this.setState({words :newWords})
+                                        }}
                                     >
                                         <Text style={{fontSize : 25 , color :  'white' }}>Remove</Text>
                                     </TouchableOpacity>
