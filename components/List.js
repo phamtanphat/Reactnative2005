@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Text, View, ScrollView, Dimensions, TouchableOpacity, TextInput } from 'react-native'
 
 import { Dropdown } from 'react-native-material-dropdown';
+import Word from './Word';
 
 const DeviceWidth = Dimensions.get('window').width
 const DeviceHeight = Dimensions.get('window').height
@@ -29,50 +30,6 @@ export default class List extends Component {
             txtvn: '',
             shouldShowForm: false
         }
-    }
-    getWordItem(word) {
-
-        return (
-
-            <View
-                key={word.id}
-                style={{ flex: 1, flexDirection: 'column', height: DeviceHeight * 0.2, margin: 10, backgroundColor: 'gainsboro', padding: 10, borderRadius: 5 }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingBottom: 5 }}>
-                    <Text style={{ fontSize: 30, color: 'green' }}>{word.en}</Text>
-                    <Text
-                        style={{ fontSize: 30, color: 'red' }}>
-                        {word.isMemorized ? "----" : word.vn}
-                    </Text>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingBottom: 5 }}>
-                    <TouchableOpacity
-                        style={{ backgroundColor: word.isMemorized ? "green" : "red", padding: 10, borderRadius: 5 }}
-                        onPress={() => {
-                            const newWords = this.state.words.map(w => {
-                                if (w.id !== word.id) return w
-                                return { ...w, isMemorized: !w.isMemorized }
-                            })
-                            this.setState({ words: newWords })
-                        }}
-                    >
-                        <Text style={{ fontSize: 20, color: 'white' }}>{word.isMemorized ? "Forgot" : "isMemorized"}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={{ backgroundColor: "orange", padding: 10, borderRadius: 5 }}
-                        onPress={() => {
-                            const newWords = this.state.words.filter(function (w) {
-                                if (w.id !== word.id) return true
-                                return false
-                            })
-                            this.setState({ words: newWords })
-                        }}
-                    >
-                        <Text style={{ fontSize: 25, color: 'white' }}>Remove</Text>
-                    </TouchableOpacity>
-                </View>
-
-            </View>
-        )
     }
     getForm() {
         if (this.state.shouldShowForm) {
@@ -144,7 +101,7 @@ export default class List extends Component {
             />
         )
     }
-    getFitered(){
+    get Fitered(){
         return this.state.words.filter(w => {
             if (this.state.fillterPick === 'Show_ALL') return true
             if (this.state.fillterPick === 'Show_Forgot' && w.isMemorized) return true
@@ -159,7 +116,7 @@ export default class List extends Component {
                     <View style={{ flex: 1 }}>
                         {this.getForm()}
                         {this.getFilterForm()}
-                        {this.getFitered().map(word => this.getWordItem(word))}
+                        {this.Fitered.map(word => <Word word={word} key={word.id}/>)}
                     </View>
                 </ScrollView>
             </View>
