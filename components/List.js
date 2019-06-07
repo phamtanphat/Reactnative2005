@@ -4,6 +4,8 @@ import { Text, View, ScrollView, Dimensions, TouchableOpacity, TextInput } from 
 
 import { Dropdown } from 'react-native-material-dropdown';
 import Word from './Word';
+import Fillter from './Fillter';
+
 
 const DeviceWidth = Dimensions.get('window').width
 const DeviceHeight = Dimensions.get('window').height
@@ -115,7 +117,7 @@ export default class List extends Component {
                 <ScrollView>
                     <View style={{ flex: 1 }}>
                         {this.getForm()}
-                        {this.getFilterForm()}
+                        <Fillter/>
                         {this.Fitered.map(word => <Word word={word} key={word.id}/>)}
                     </View>
                 </ScrollView>

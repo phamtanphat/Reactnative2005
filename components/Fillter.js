@@ -18,16 +18,14 @@ export default class Fillter extends PureComponent {
     }
     render() {
         return (
-            <View style={{flex : 1 , justifyContent : 'center' , alignItems : 'center'}}>
                 <Dropdown
-                    containerStyle={{width : DeviceWidth * 0.5 , height : DeviceWidth * 0.1 , borderRadius : 5 , borderWidth : 1 , paddingLeft : DeviceWidth * 0.02}}
+                    containerStyle={{width : DeviceWidth * 0.9 , height : DeviceWidth * 0.1 , borderRadius : 5 , borderWidth : 1 , paddingLeft : DeviceWidth * 0.02, alignSelf: 'center', marginVertical: DeviceWidth * 0.05}}
                     inputContainerStyle={{ borderBottomColor: 'transparent' }}
                     dropdownOffset={{top: DeviceWidth * 0.01, left : 0}}
                     data={this.state.fillterMode}
                     value={this.state.fillterPick}
                     onChangeText={text => alert(text)}
                 />
-            </View>
         )
     }
 }
