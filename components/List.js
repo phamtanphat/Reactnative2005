@@ -1,8 +1,8 @@
 // ctrl + space : goi y code
 import React, { Component } from 'react'
 import { Text, View, ScrollView, Dimensions, TouchableOpacity, TextInput } from 'react-native'
-import Word from './Word';
-import { thisExpression } from '@babel/types';
+
+import { Dropdown } from 'react-native-material-dropdown';
 
 const DeviceWidth = Dimensions.get('window').width
 const DeviceHeight = Dimensions.get('window').height
@@ -19,9 +19,15 @@ export default class List extends Component {
                 { id: "a5", en: "Five", vn: "Nam", isMemorized: true },
                 { id: "a6", en: "Six", vn: "Sau", isMemorized: false },
             ],
+            fillterMode: [
+                { value: "Show_ALL" },
+                { value: "Show_Forgot" },
+                { value: "Show_Memorized" }
+            ],
+            fillterPick: 'Show_All',
             txten: '',
             txtvn: '',
-            shouldShowForm : false
+            shouldShowForm: false
         }
     }
     getWordItem(word) {
@@ -69,7 +75,7 @@ export default class List extends Component {
         )
     }
     getForm() {
-        if(this.state.shouldShowForm){
+        if (this.state.shouldShowForm) {
             return (
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <View style={{ flexDirection: 'column', backgroundColor: 'gainsboro', padding: 10, justifyContent: 'center', alignItems: 'center' }}>
@@ -84,7 +90,7 @@ export default class List extends Component {
                             value={this.state.txtvn}
                             onChangeText={(text) => this.setState({ txtvn: text })} />
                     </View>
-    
+
                     <View style={{ flexDirection: "row", marginTop: DeviceWidth * 0.01, alignItems: "center" }}>
                         <TouchableOpacity
                             style={{ backgroundColor: "#218838", padding: 10, borderRadius: 8, marginRight: DeviceWidth * 0.03 }}
@@ -117,12 +123,12 @@ export default class List extends Component {
         }
         return (
             <TouchableOpacity
-                    style={{backgroundColor : "#218838" , padding : 10 , borderRadius : 8 ,width : DeviceWidth * 0.7, alignSelf : 'center' , marginTop : DeviceWidth * 0.05}}
-                >
-                     <Text style={{fontSize : DeviceWidth * 0.08 , color : 'white' ,textAlign : 'center'}}>+</Text>
+                style={{ backgroundColor: "#218838", padding: 10, borderRadius: 8, width: DeviceWidth * 0.7, alignSelf: 'center', marginTop: DeviceWidth * 0.05 }}
+            >
+                <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white', textAlign: 'center' }}>+</Text>
             </TouchableOpacity>
         )
-       
+
     }
     render() {
         return (
@@ -130,6 +136,14 @@ export default class List extends Component {
                 <ScrollView>
                     <View style={{ flex: 1 }}>
                         {this.getForm()}
+                        <Dropdown
+                            containerStyle={{ width: DeviceWidth * 0.95, height: DeviceWidth * 0.1, borderRadius: 5, borderWidth: 1, paddingLeft: DeviceWidth * 0.02 , alignSelf : 'center' , marginVertical : DeviceWidth * 0.05}}
+                            inputContainerStyle={{ borderBottomColor: 'transparent' }}
+                            dropdownOffset={{ top: DeviceWidth * 0.01, left: 0 }}
+                            data={this.state.fillterMode}
+                            value={this.state.fillterPick}
+                            onChangeText={text => alert(text)}
+                        />
                         {this.state.words.map(word => this.getWordItem(word))}
                     </View>
                 </ScrollView>

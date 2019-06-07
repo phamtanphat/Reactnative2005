@@ -19,7 +19,7 @@ export default class Fillter extends PureComponent {
     render() {
         return (
             <View style={{flex : 1 , justifyContent : 'center' , alignItems : 'center'}}>
-                 <Dropdown
+                <Dropdown
                     containerStyle={{width : DeviceWidth * 0.5 , height : DeviceWidth * 0.1 , borderRadius : 5 , borderWidth : 1 , paddingLeft : DeviceWidth * 0.02}}
                     inputContainerStyle={{ borderBottomColor: 'transparent' }}
                     dropdownOffset={{top: DeviceWidth * 0.01, left : 0}}
