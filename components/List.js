@@ -114,7 +114,7 @@ export default class List extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={{ backgroundColor: "#C82333", padding: 10, borderRadius: 8 }}
-                            onPress={() => this.setState({shouldShowForm : false})}
+                            onPress={() => this.setState({ shouldShowForm: false })}
                         >
                             <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white' }}>Cancel</Text>
                         </TouchableOpacity>
@@ -125,12 +125,32 @@ export default class List extends Component {
         return (
             <TouchableOpacity
                 style={{ backgroundColor: "#218838", padding: 10, borderRadius: 8, width: DeviceWidth * 0.7, alignSelf: 'center', marginTop: DeviceWidth * 0.05 }}
-                onPress={() => this.setState({shouldShowForm : true})}
+                onPress={() => this.setState({ shouldShowForm: true })}
             >
                 <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white', textAlign: 'center' }}>+</Text>
             </TouchableOpacity>
         )
 
+    }
+    getFilterForm() {
+        return (
+            <Dropdown
+                containerStyle={{ width: DeviceWidth * 0.95, height: DeviceWidth * 0.1, borderRadius: 5, borderWidth: 1, paddingLeft: DeviceWidth * 0.02, alignSelf: 'center', marginVertical: DeviceWidth * 0.05 }}
+                inputContainerStyle={{ borderBottomColor: 'transparent' }}
+                dropdownOffset={{ top: DeviceWidth * 0.01, left: 0 }}
+                data={this.state.fillterMode}
+                value={this.state.fillterPick}
+                onChangeText={text => this.setState({ fillterPick: text })}
+            />
+        )
+    }
+    getFitered(){
+        return this.state.words.filter(w => {
+            if (this.state.fillterPick === 'Show_ALL') return true
+            if (this.state.fillterPick === 'Show_Forgot' && w.isMemorized) return true
+            if (this.state.fillterPick === 'Show_Memorized' && !w.isMemorized) return true
+            return false
+        })
     }
     render() {
         return (
@@ -138,20 +158,8 @@ export default class List extends Component {
                 <ScrollView>
                     <View style={{ flex: 1 }}>
                         {this.getForm()}
-                        <Dropdown
-                            containerStyle={{ width: DeviceWidth * 0.95, height: DeviceWidth * 0.1, borderRadius: 5, borderWidth: 1, paddingLeft: DeviceWidth * 0.02 , alignSelf : 'center' , marginVertical : DeviceWidth * 0.05}}
-                            inputContainerStyle={{ borderBottomColor: 'transparent' }}
-                            dropdownOffset={{ top: DeviceWidth * 0.01, left: 0 }}
-                            data={this.state.fillterMode}
-                            value={this.state.fillterPick}
-                            onChangeText={text => this.setState({fillterPick : text})}
-                        />
-                        {this.state.words.filter(w => {
-                            if(this.state.fillterPick === 'Show_ALL') return true
-                            if(this.state.fillterPick === 'Show_Forgot' && w.isMemorized) return true
-                            if(this.state.fillterPick === 'Show_Memorized' && !w.isMemorized) return true
-                            return false
-                        }).map(word => this.getWordItem(word))}
+                        {this.getFilterForm()}
+                        {this.getFitered().map(word => this.getWordItem(word))}
                     </View>
                 </ScrollView>
             </View>
