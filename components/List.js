@@ -24,7 +24,7 @@ export default class List extends Component {
                 { value: "Show_Forgot" },
                 { value: "Show_Memorized" }
             ],
-            fillterPick: 'Show_All',
+            fillterPick: 'Show_ALL',
             txten: '',
             txtvn: '',
             shouldShowForm: false
@@ -114,6 +114,7 @@ export default class List extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={{ backgroundColor: "#C82333", padding: 10, borderRadius: 8 }}
+                            onPress={() => this.setState({shouldShowForm : false})}
                         >
                             <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white' }}>Cancel</Text>
                         </TouchableOpacity>
@@ -124,6 +125,7 @@ export default class List extends Component {
         return (
             <TouchableOpacity
                 style={{ backgroundColor: "#218838", padding: 10, borderRadius: 8, width: DeviceWidth * 0.7, alignSelf: 'center', marginTop: DeviceWidth * 0.05 }}
+                onPress={() => this.setState({shouldShowForm : true})}
             >
                 <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white', textAlign: 'center' }}>+</Text>
             </TouchableOpacity>
@@ -142,9 +144,14 @@ export default class List extends Component {
                             dropdownOffset={{ top: DeviceWidth * 0.01, left: 0 }}
                             data={this.state.fillterMode}
                             value={this.state.fillterPick}
-                            onChangeText={text => alert(text)}
+                            onChangeText={text => this.setState({fillterPick : text})}
                         />
-                        {this.state.words.map(word => this.getWordItem(word))}
+                        {this.state.words.filter(w => {
+                            if(this.state.fillterPick === 'Show_ALL') return true
+                            if(this.state.fillterPick === 'Show_Forgot' && w.isMemorized) return true
+                            if(this.state.fillterPick === 'Show_Memorized' && !w.isMemorized) return true
+                            return false
+                        }).map(word => this.getWordItem(word))}
                     </View>
                 </ScrollView>
             </View>
