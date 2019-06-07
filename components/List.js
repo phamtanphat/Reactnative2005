@@ -24,22 +24,15 @@ export default class List extends Component {
                 { id: "a5", en: "Five", vn: "Nam", isMemorized: true },
                 { id: "a6", en: "Six", vn: "Sau", isMemorized: false },
             ],
-            fillterMode: [
-                { value: "Show_ALL" },
-                { value: "Show_Forgot" },
-                { value: "Show_Memorized" }
-            ],
-            fillterPick: 'Show_ALL',
-            txten: '',
-            txtvn: '',
+            filterMode : 'Show_Memorized',
             shouldShowForm: false
         }
     }
     get Fitered(){
         return this.state.words.filter(w => {
-            if (this.state.fillterPick === 'Show_ALL') return true
-            if (this.state.fillterPick === 'Show_Forgot' && w.isMemorized) return true
-            if (this.state.fillterPick === 'Show_Memorized' && !w.isMemorized) return true
+            if (this.state.filterMode === 'Show_ALL') return true
+            if (this.state.filterMode === 'Show_Forgot' && w.isMemorized) return true
+            if (this.state.filterMode === 'Show_Memorized' && !w.isMemorized) return true
             return false
         })
     }
@@ -49,7 +42,7 @@ export default class List extends Component {
                 <ScrollView>
                     <View style={{ flex: 1 }}>
                         <Form shouldShowForm={this.state.shouldShowForm}/>
-                        <Fillter/>
+                        <Fillter filterMode={this.state.filterMode}/>
                         {this.Fitered.map(word => <Word word={word} key={word.id}/>)}
                     </View>
                 </ScrollView>

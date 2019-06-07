@@ -7,7 +7,7 @@ export default class Fillter extends PureComponent {
     constructor(props){
         super(props)
         this.state = {
-            fillterMode : [
+            fillterModes : [
                 {value : "Show_ALL"},
                 {value : "Show_Forgot"},
                 {value : "Show_Memorized"}
@@ -22,8 +22,8 @@ export default class Fillter extends PureComponent {
                     containerStyle={{width : DeviceWidth * 0.9 , height : DeviceWidth * 0.1 , borderRadius : 5 , borderWidth : 1 , paddingLeft : DeviceWidth * 0.02, alignSelf: 'center', marginVertical: DeviceWidth * 0.05}}
                     inputContainerStyle={{ borderBottomColor: 'transparent' }}
                     dropdownOffset={{top: DeviceWidth * 0.01, left : 0}}
-                    data={this.state.fillterMode}
-                    value={this.state.fillterPick}
+                    data={this.state.fillterModes}
+                    value={this.props.filterMode}
                     onChangeText={text => alert(text)}
                 />
         )
