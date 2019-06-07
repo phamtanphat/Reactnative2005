@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { Text, View , ScrollView , Dimensions , TouchableOpacity , TextInput} from 'react-native'
 import Word from './Word';
+import { thisExpression } from '@babel/types';
 
 const DeviceWidth = Dimensions.get('window').width
 const DeviceHeight = Dimensions.get('window').height
@@ -87,15 +88,21 @@ export default class List extends Component {
                                 <TouchableOpacity
                                     style={{backgroundColor : "#218838" , padding : 10 , borderRadius : 8 , marginRight : DeviceWidth * 0.03}}
                                     onPress={() => {
-                                        const word = {
-                                            id : Math.random(),
-                                            en : this.state.txten,
-                                            vn : this.state.txtvn,
-                                            isMemorized : false
+                                        if(this.state.txten.trim().length > 0 && this.state.txtvn.trim().length > 0){
+                                            const word = {
+                                                id : Math.random(),
+                                                en : this.state.txten,
+                                                vn : this.state.txtvn,
+                                                isMemorized : false
+                                            }
+                                            
+                                            const newWords = Object.assign([], this.state.words)
+                                            newWords.unshift(word)
+                                            this.setState({words : newWords})
+                                        }else{
+                                            alert("Truyen thong tin cho tu vung!!")
                                         }
-                                        const newWords = Object.assign([], this.state.words)
-                                        newWords.unshift(word)
-                                        this.setState({words : newWords})
+                                       
                                         
                                     }}
                                 >
@@ -110,7 +117,6 @@ export default class List extends Component {
                         </View>
                         {this.state.words.map(word => this.getWordItem(word))}
                     </View>
-                    
                 </ScrollView>
             </View>
         )
