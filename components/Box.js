@@ -8,15 +8,18 @@ export default class Box extends Component {
         this.state = {
             value : 1
         }
+        this.onIncrease = this.onIncrease.bind(this);
     }
     onIncrease(){
         this.setState({value : this.state.value + 1})
     }
+    // mat context : khi su dung truyen function 
+    //onIncrease={this.onIncrease}
     render() {
         return(
             <View style={{flex : 1 , flexDirection : 'column' , justifyContent : 'center' , alignContent : 'center'}}>
                 <Text style={{fontSize : 20 , color : 'red' , alignSelf :'center'}}>Value = {this.state.value}</Text>
-                <Child onIncrease={() => this.onIncrease()}/>
+                <Child onIncrease={ this.onIncrease.bind(this)}/>
             </View>
         )
     }

@@ -3,13 +3,13 @@ import { Text, View , TouchableOpacity} from 'react-native'
 
 export default class Child extends PureComponent {
     render() {
-        const that = this.props.that;
+       
         return (
             <View>
                 <View style={{flexDirection : 'row' }}>
                     <TouchableOpacity
                         style={{backgroundColor : 'green' , padding : 10 , borderRadius : 5}}
-                        onPress={() => that.setState({value : this.state.value + 1 })}
+                        onPress={() => this.props.onIncrease()}
                     >
                         <Text style={{color : 'white' , fontSize : 20}}>Increase</Text>
                     </TouchableOpacity>

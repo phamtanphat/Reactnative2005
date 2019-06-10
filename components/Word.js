@@ -34,7 +34,6 @@ export default class Word extends Component {
                         <Text style={{fontSize : 25 , color :  'white' }}>Remove</Text>
                     </TouchableOpacity>
                 </View>
-                
             </View>
         )
     }

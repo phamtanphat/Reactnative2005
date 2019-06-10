@@ -1,5 +1,3 @@
-
-
 const teo = {
     name : "Teo",
     age : 10,
