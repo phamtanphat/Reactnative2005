@@ -9,11 +9,14 @@ export default class Box extends Component {
             value : 1
         }
     }
+    onIncrease(){
+        this.setState({value : this.state.value + 1})
+    }
     render() {
         return(
             <View style={{flex : 1 , flexDirection : 'column' , justifyContent : 'center' , alignContent : 'center'}}>
                 <Text style={{fontSize : 20 , color : 'red' , alignSelf :'center'}}>Value = {this.state.value}</Text>
-                <Child that={this}/>
+                <Child onIncrease={() => this.onIncrease()}/>
             </View>
         )
     }
