@@ -1,4 +1,4 @@
-package com.reactnative2005;
+package com.rn2005;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "reactnative2005";
+        return "rn2005";
     }
 }

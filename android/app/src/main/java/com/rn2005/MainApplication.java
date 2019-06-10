@@ -1,4 +1,4 @@
-package com.reactnative2005;
+package com.rn2005;
 
 import android.app.Application;
 

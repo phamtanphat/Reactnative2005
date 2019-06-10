@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D2A28121D9B038B00D4039D"
+               BlueprintIdentifier = "83CBBA2D1A601D0E00E9B192"
                BuildableName = "libReact.a"
-               BlueprintName = "React-tvOS"
+               BlueprintName = "React"
                ReferencedContainer = "container:../node_modules/react-native/React/React.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "reactnative2005-tvOS.app"
-               BlueprintName = "reactnative2005-tvOS"
-               ReferencedContainer = "container:reactnative2005.xcodeproj">
+               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+               BuildableName = "rn2005.app"
+               BlueprintName = "rn2005"
+               ReferencedContainer = "container:rn2005.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -42,10 +42,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "reactnative2005-tvOSTests.xctest"
-               BlueprintName = "reactnative2005-tvOSTests"
-               ReferencedContainer = "container:reactnative2005.xcodeproj">
+               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
+               BuildableName = "rn2005Tests.xctest"
+               BlueprintName = "rn2005Tests"
+               ReferencedContainer = "container:rn2005.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -60,20 +60,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "reactnative2005-tvOSTests.xctest"
-               BlueprintName = "reactnative2005-tvOSTests"
-               ReferencedContainer = "container:reactnative2005.xcodeproj">
+               BlueprintIdentifier = "00E356ED1AD99517003FC87E"
+               BuildableName = "rn2005Tests.xctest"
+               BlueprintName = "rn2005Tests"
+               ReferencedContainer = "container:rn2005.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "reactnative2005-tvOS.app"
-            BlueprintName = "reactnative2005-tvOS"
-            ReferencedContainer = "container:reactnative2005.xcodeproj">
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "rn2005.app"
+            BlueprintName = "rn2005"
+            ReferencedContainer = "container:rn2005.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -93,10 +93,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "reactnative2005-tvOS.app"
-            BlueprintName = "reactnative2005-tvOS"
-            ReferencedContainer = "container:reactnative2005.xcodeproj">
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "rn2005.app"
+            BlueprintName = "rn2005"
+            ReferencedContainer = "container:rn2005.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -112,10 +112,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "reactnative2005-tvOS.app"
-            BlueprintName = "reactnative2005-tvOS"
-            ReferencedContainer = "container:reactnative2005.xcodeproj">
+            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
+            BuildableName = "rn2005.app"
+            BlueprintName = "rn2005"
+            ReferencedContainer = "container:rn2005.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
