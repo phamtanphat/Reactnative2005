@@ -48,12 +48,18 @@ export default class List extends Component {
     onToggleForm(){
         this.setState({shouldShowForm : !this.state.shouldShowForm})
     }
+    onAddWord(word){
+        const newWords =this.state.words;
+        newWords.unshift(word)
+        this.setState({words : newWords})
+    }
     render() {
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView>
                     <View style={{ flex: 1 }}>
-                        <Form 
+                        <Form
+                            onAddWord={(word) => this.onAddWord(word)} 
                             onToggleForm={() => this.onToggleForm()}
                             shouldShowForm={this.state.shouldShowForm}/>
                         <Fillter filterMode={this.state.filterMode}/>

@@ -10,8 +10,9 @@ export default class Form extends PureComponent {
             txtvn: ''
         }
     }
+
     getForm() {
-        const {onToggleForm} = this.props
+        const {onToggleForm , onAddWord} = this.props
         if (this.props.shouldShowForm) {
             return (
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -39,9 +40,8 @@ export default class Form extends PureComponent {
                                         vn: this.state.txtvn,
                                         isMemorized: false
                                     }
-                                    const newWords = Object.assign([], this.state.words)
-                                    newWords.unshift(word)
-                                    this.setState({ words: newWords })
+                                    onAddWord(word);
+                                    this.setState({txten : '' , txtvn : ''})
                                 } else {
                                     alert("Truyen thong tin cho tu vung!!")
                                 }
