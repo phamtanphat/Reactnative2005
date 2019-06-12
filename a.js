@@ -1,9 +1,5 @@
-const teo = {
-    name : "Teo",
-    age : 10,
-    sayhello : function(){
-        return this.name + " xin chao"
-    }
+function dosth(fn){
+    fn(1)
 }
-const ti = teo.sayhello
-console.log(ti.bind(teo)());
+
+dosth(console.log)

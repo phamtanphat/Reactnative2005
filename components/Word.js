@@ -10,7 +10,8 @@ export default class Word extends Component {
     //     }
     // }
     render() {
-        const {en , vn , isMemorized} = this.props.word
+        const {en , vn , isMemorized , id} = this.props.word
+        const { onToggleWord } = this.props;
         const DeviceWidth = Dimensions.get('window').width
         const DeviceHeight = Dimensions.get('window').height
         return (
@@ -25,6 +26,7 @@ export default class Word extends Component {
                 <View style={{flexDirection : 'row' , justifyContent : 'space-around' , paddingBottom : 5}}>
                     <TouchableOpacity
                         style={{backgroundColor : isMemorized ? "green" : "red" , padding : 10 , borderRadius : 5}}
+                        onPress={() => onToggleWord(id)}
                     >
                         <Text style={{fontSize : 20 , color : 'white'}}>{isMemorized ? "Forgot" : "isMemorized"}</Text>
                     </TouchableOpacity>
@@ -34,6 +36,7 @@ export default class Word extends Component {
                         <Text style={{fontSize : 25 , color :  'white' }}>Remove</Text>
                     </TouchableOpacity>
                 </View>
+                
             </View>
         )
     }

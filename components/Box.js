@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View  } from 'react-native'
+import { Text, View } from 'react-native'
 import Child from './Child';
+import { thisExpression } from '@babel/types';
 
 export default class Box extends Component {
     constructor(props){
@@ -8,18 +9,25 @@ export default class Box extends Component {
         this.state = {
             value : 1
         }
-        this.onIncrease = this.onIncrease.bind(this);
     }
     onIncrease(){
         this.setState({value : this.state.value + 1})
     }
-    // mat context : khi su dung truyen function 
-    //onIncrease={this.onIncrease}
+    onDescrease(){
+        this.setState({value : this.state.value - 1})
+    }
+    onReset(){
+        this.setState({value : 0})
+    }
     render() {
         return(
             <View style={{flex : 1 , flexDirection : 'column' , justifyContent : 'center' , alignContent : 'center'}}>
                 <Text style={{fontSize : 20 , color : 'red' , alignSelf :'center'}}>Value = {this.state.value}</Text>
-                <Child onIncrease={ this.onIncrease.bind(this)}/>
+                <Child 
+                    onIncrease={() => this.onIncrease()}
+                    onDescrease={() => this.onDescrease()}
+                    onReset={() => this.onReset()}
+                    style={{ alignSelf :'center'}}/>
             </View>
         )
     }
