@@ -53,6 +53,9 @@ export default class List extends Component {
         newWords.unshift(word)
         this.setState({words : newWords})
     }
+    onSetFilterMode(filterMode){
+        this.setState({filterMode : filterMode})
+    }
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -62,7 +65,9 @@ export default class List extends Component {
                             onAddWord={(word) => this.onAddWord(word)} 
                             onToggleForm={() => this.onToggleForm()}
                             shouldShowForm={this.state.shouldShowForm}/>
-                        <Fillter filterMode={this.state.filterMode}/>
+                        <Fillter 
+                            onSetFilterMode={(filterMode) => this.onSetFilterMode(filterMode)}
+                            filterMode={this.state.filterMode}/>
                         {this.Fitered.map(word => 
                             <Word
                                 onRemove={(id) => this.onRemove(id)}

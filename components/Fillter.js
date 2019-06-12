@@ -24,7 +24,7 @@ export default class Fillter extends PureComponent {
                     dropdownOffset={{top: DeviceWidth * 0.01, left : 0}}
                     data={this.state.fillterModes}
                     value={this.props.filterMode}
-                    onChangeText={text => alert(text)}
+                    onChangeText={text => this.props.onSetFilterMode(text)}
                 />
         )
     }
