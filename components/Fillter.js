@@ -13,7 +13,6 @@ export default class Fillter extends PureComponent {
                 {value : "Show_Memorized"}
             ],
             fillterPick : 'Show_All'
-            
         }
     }
     render() {
