@@ -11,7 +11,7 @@ export default class Word extends Component {
     // }
     render() {
         const {en , vn , isMemorized , id} = this.props.word
-        const { onToggleWord } = this.props;
+        const { onToggleWord , onRemove} = this.props;
         const DeviceWidth = Dimensions.get('window').width
         const DeviceHeight = Dimensions.get('window').height
         return (
@@ -32,6 +32,7 @@ export default class Word extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{backgroundColor : "orange" , padding : 10 , borderRadius : 5}}
+                        onPress={() => onRemove(id)}
                     >
                         <Text style={{fontSize : 25 , color :  'white' }}>Remove</Text>
                     </TouchableOpacity>

@@ -41,6 +41,10 @@ export default class List extends Component {
         })
         this.setState({words : newWords})
     }
+    onRemove(id){
+        const newWords = this.state.words.filter(w => w.id !== id)
+        this.setState({words : newWords})
+    }
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -50,6 +54,7 @@ export default class List extends Component {
                         <Fillter filterMode={this.state.filterMode}/>
                         {this.Fitered.map(word => 
                             <Word
+                                onRemove={(id) => this.onRemove(id)}
                                 onToggleWord={(id) => this.onToggleWord(id)} 
                                 word={word} 
                                 key={word.id}/>)}
