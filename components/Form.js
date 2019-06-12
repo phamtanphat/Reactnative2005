@@ -9,9 +9,9 @@ export default class Form extends PureComponent {
             txten: '',
             txtvn: ''
         }
-
     }
     getForm() {
+        const {onToggleForm} = this.props
         if (this.props.shouldShowForm) {
             return (
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -51,7 +51,7 @@ export default class Form extends PureComponent {
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={{ backgroundColor: "#C82333", padding: 10, borderRadius: 8 }}
-                            onPress={() => this.setState({ shouldShowForm: false })}
+                            onPress={() => onToggleForm()}
                         >
                             <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white' }}>Cancel</Text>
                         </TouchableOpacity>
@@ -62,12 +62,13 @@ export default class Form extends PureComponent {
         return(
         <TouchableOpacity
             style={{ backgroundColor: "#218838", padding: 10, borderRadius: 8, width: DeviceWidth * 0.7, alignSelf: 'center', marginTop: DeviceWidth * 0.05 }}
-            onPress={() => this.setState({ shouldShowForm: true })}
+            onPress={() => onToggleForm()}
         >
             <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white', textAlign: 'center' }}>+</Text>
 
         </TouchableOpacity>)
     }
+
 
     render() {
         return (

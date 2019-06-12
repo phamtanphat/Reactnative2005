@@ -45,12 +45,17 @@ export default class List extends Component {
         const newWords = this.state.words.filter(w => w.id !== id)
         this.setState({words : newWords})
     }
+    onToggleForm(){
+        this.setState({shouldShowForm : !this.state.shouldShowForm})
+    }
     render() {
         return (
             <View style={{ flex: 1 }}>
                 <ScrollView>
                     <View style={{ flex: 1 }}>
-                        <Form shouldShowForm={this.state.shouldShowForm}/>
+                        <Form 
+                            onToggleForm={() => this.onToggleForm()}
+                            shouldShowForm={this.state.shouldShowForm}/>
                         <Fillter filterMode={this.state.filterMode}/>
                         {this.Fitered.map(word => 
                             <Word
