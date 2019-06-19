@@ -32,7 +32,10 @@ const store = createStore((state = 10, action) => {
 // 3 : Khi muốn lấy dữ liệu thì gọi store.getState()
 // 4 : Khi muốn thay đổi store thì dùng dispatch
 
-
+// 1 : Truyền store vào provider
+// 2 : Components muốn nhận giá trị của store thì sẽ nằm trong Provider
+// 3 : sử dung {connect} để kết nối store
+// 4  : truyền giá trị trong store vào cho components và export ra component đã được truyền store vào
 export default class App extends Component {
   render() {
     return (
