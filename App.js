@@ -23,7 +23,7 @@ const defaultState = {
     { id: "a5", en: "Five", vn: "Nam", isMemorized: true },
     { id: "a6", en: "Six", vn: "Sau", isMemorized: false }
   ],
-  filterMode : 'Show_Memorized',
+  filterMode : 'Show_ALL',
   shouldShowForm: false
 }
 const store = createStore((state = defaultState ,action) => {
