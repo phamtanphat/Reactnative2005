@@ -15,4 +15,4 @@ class Box extends Component {
         )
     }
 }
-export default connect(store => ({count : store}))(Box)
+export default connect(store => ({count : store.count}))(Box)

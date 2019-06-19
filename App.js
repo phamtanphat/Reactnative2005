@@ -12,37 +12,34 @@ import List from './components/List';
 import Box from './components/Box';
 import Form from './components/Form';
 import Fillter from './components/Fillter';
-import { createStore } from 'redux'
+import {createStore} from 'redux';
 import {Provider} from 'react-redux'
+const defaultState = {
+  words: [
+    { id: "a1", en: "One", vn: "Mot", isMemorized: true },
+    { id: "a2", en: "Two", vn: "Hai", isMemorized: false },
+    { id: "a3", en: "Three", vn: "Ba", isMemorized: false },
+    { id: "a4", en: "Four", vn: "Bon", isMemorized: false },
+    { id: "a5", en: "Five", vn: "Nam", isMemorized: true },
+    { id: "a6", en: "Six", vn: "Sau", isMemorized: false }
+  ],
+  filterMode : 'Show_Memorized',
+  shouldShowForm: false
+}
+const store = createStore((state = defaultState ,action) => {
 
-const store = createStore((state = 10, action) => {
-    switch(action.type){
-        case "INCREASE" : return state + 1
-        default : return state
-    }
+    return state 
 })
-// alert(store.getState())
-// store.dispatch({type : "INCREASE" , count : 1})
-// alert(store.getState())
 
-// 1 : Gọi lại hàm createStore dùng để định nghĩa ra store
-// 2 : Giá trị ở trong createStore là 1 function có 2 tham số
-//    + Dữ liệu trong store(state)
-//    +Chỉ thị để thay đổi store(action)
-// 3 : Khi muốn lấy dữ liệu thì gọi store.getState()
-// 4 : Khi muốn thay đổi store thì dùng dispatch
 
-// 1 : Truyền store vào provider
-// 2 : Components muốn nhận giá trị của store thì sẽ nằm trong Provider
-// 3 : sử dung {connect} để kết nối store
-// 4  : truyền giá trị trong store vào cho components và export ra component đã được truyền store vào
+
 export default class App extends Component {
   render() {
     return (
       <View style={{flex : 1 }}>
-          <Provider store={store}>
-            <Box/>
-          </Provider>
+        <Provider store={store}>
+          <List/>
+        </Provider>
       </View>
     );
   }
