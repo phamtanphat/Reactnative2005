@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TouchableOpacity, TextInput, Dimensions } from 'react-native'
-
+import {connect} from 'react-redux'
 const DeviceWidth = Dimensions.get("window").width
-export default class Form extends PureComponent {
+class Form extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -10,7 +10,6 @@ export default class Form extends PureComponent {
             txtvn: ''
         }
     }
-
     getForm() {
         if (this.props.shouldShowForm) {
             return (
@@ -61,3 +60,7 @@ export default class Form extends PureComponent {
         )
     }
 }
+const mapStateToProps = function(state){
+    return {shouldShowForm : state.shouldShowForm}
+}
+export default connect(mapStateToProps)(Form)
