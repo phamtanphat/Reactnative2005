@@ -33,7 +33,7 @@ class Word extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{backgroundColor : "orange" , padding : 10 , borderRadius : 5}}
-                        onPress={() => onRemove(id)}
+                        onPress={() => dispatch({type : "REMOVE_WORD" , id})}
                     >
                         <Text style={{fontSize : 25 , color :  'white' }}>Remove</Text>
                     </TouchableOpacity>

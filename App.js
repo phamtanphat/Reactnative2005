@@ -35,6 +35,10 @@ const store = createStore((state = defaultState ,action) => {
           })
           return {...state , words : newWords}
         }
+        case "REMOVE_WORD" : {           
+          const newWords = state.words.filter(w => w.id !== action.id)
+          return {...state , words : newWords}
+        }
         default : return state
     }
 })
