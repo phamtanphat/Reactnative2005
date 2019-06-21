@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Text, View  , TouchableOpacity , Dimensions} from 'react-native';
+import {connect} from 'react-redux';
 
-export default class Word extends Component {
+class Word extends Component {
     // checkMemorized(){
     //     if(this.props.word.isMemorized){
     //         return <Text style={{color : 'red' , fontSize : 20}}>----</Text>
@@ -11,7 +12,7 @@ export default class Word extends Component {
     // }
     render() {
         const {en , vn , isMemorized , id} = this.props.word
-        const { onToggleWord , onRemove} = this.props;
+        const { dispatch }  = this.props;
         const DeviceWidth = Dimensions.get('window').width
         const DeviceHeight = Dimensions.get('window').height
         return (
@@ -26,7 +27,7 @@ export default class Word extends Component {
                 <View style={{flexDirection : 'row' , justifyContent : 'space-around' , paddingBottom : 5}}>
                     <TouchableOpacity
                         style={{backgroundColor : isMemorized ? "green" : "red" , padding : 10 , borderRadius : 5}}
-                        onPress={() => onToggleWord(id)}
+                        onPress={() => dispatch({type : "TOGGLE_WORD" , id })}
                     >
                         <Text style={{fontSize : 20 , color : 'white'}}>{isMemorized ? "Forgot" : "isMemorized"}</Text>
                     </TouchableOpacity>
@@ -43,6 +44,7 @@ export default class Word extends Component {
     }
   }
 
+export default connect()(Word)
  // Auto Close Tag
 //Auto Rename Tag
 //ES7 React/Redux/GraphQL/React-Native snippets

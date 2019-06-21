@@ -22,13 +22,21 @@ import {Provider} from 'react-redux'
       { id: "a4", en: "Four", vn: "Bon", isMemorized: false },
       { id: "a5", en: "Five", vn: "Nam", isMemorized: true },
       { id: "a6", en: "Six", vn: "Sau", isMemorized: false }
-    ],
+    ],  
     filterMode : 'Show_ALL',
     shouldShowForm: true
   }
 const store = createStore((state = defaultState ,action) => {
-
-    return state 
+    switch(action.type){
+        case "TOGGLE_WORD" : {
+          const newWords = state.words.map(w => {
+              if(w.id !== action.id) return w
+              return {...w , isMemorized : !w.isMemorized}
+          })
+          return {...state , words : newWords}
+        }
+        default : return state
+    }
 })
 
 
