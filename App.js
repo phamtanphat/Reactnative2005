@@ -14,18 +14,18 @@ import Form from './components/Form';
 import Fillter from './components/Fillter';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux'
-const defaultState = {
-  words: [
-    { id: "a1", en: "One", vn: "Mot", isMemorized: true },
-    { id: "a2", en: "Two", vn: "Hai", isMemorized: false },
-    { id: "a3", en: "Three", vn: "Ba", isMemorized: false },
-    { id: "a4", en: "Four", vn: "Bon", isMemorized: false },
-    { id: "a5", en: "Five", vn: "Nam", isMemorized: true },
-    { id: "a6", en: "Six", vn: "Sau", isMemorized: false }
-  ],
-  filterMode : 'Show_ALL',
-  shouldShowForm: true
-}
+  const defaultState = {
+    words: [
+      { id: "a1", en: "One", vn: "Mot", isMemorized: true },
+      { id: "a2", en: "Two", vn: "Hai", isMemorized: false },
+      { id: "a3", en: "Three", vn: "Ba", isMemorized: false },
+      { id: "a4", en: "Four", vn: "Bon", isMemorized: false },
+      { id: "a5", en: "Five", vn: "Nam", isMemorized: true },
+      { id: "a6", en: "Six", vn: "Sau", isMemorized: false }
+    ],
+    filterMode : 'Show_ALL',
+    shouldShowForm: true
+  }
 const store = createStore((state = defaultState ,action) => {
 
     return state 
