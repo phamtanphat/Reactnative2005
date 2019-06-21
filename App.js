@@ -39,6 +39,7 @@ const store = createStore((state = defaultState ,action) => {
           const newWords = state.words.filter(w => w.id !== action.id)
           return {...state , words : newWords}
         }
+        case "SET_FILTER_MODE" : return {...state , filterMode : action.filterMode}
         default : return state
     }
 })
