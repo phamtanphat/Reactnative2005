@@ -11,6 +11,8 @@ class Form extends PureComponent {
         }
     }
     getForm() {
+        const{dispatch} = this.props
+        const { txten , txtvn} = this.state
         if (this.props.shouldShowForm) {
             return (
                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -30,11 +32,27 @@ class Form extends PureComponent {
                     <View style={{ flexDirection: "row", marginTop: DeviceWidth * 0.01, alignItems: "center" }}>
                         <TouchableOpacity
                             style={{ backgroundColor: "#218838", padding: 10, borderRadius: 8, marginRight: DeviceWidth * 0.03 }}
+                            onPress={() => {
+                                if(txten.length > 0 && txtvn.length > 0){
+                                    const word = {
+                                        id : Math.random()+ "",
+                                        en : txten,
+                                        vn : txtvn,
+                                        isMemorized : false
+                                    }
+                                    dispatch({type : "ADD_WORD" , word})
+                                    this.setState({txten : '' , txtvn : ''})
+                                }else{
+                                    alert("Truyen du thong tin!!")
+                                }
+
+                            }}
                         >
                             <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white' }}>Add word</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={{ backgroundColor: "#C82333", padding: 10, borderRadius: 8 }}
+                            onPress={() => dispatch({type : "TOGGLE_FORM"})}
                         >
                             <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white' }}>Cancel</Text>
                         </TouchableOpacity>
@@ -45,6 +63,7 @@ class Form extends PureComponent {
         return(
         <TouchableOpacity
             style={{ backgroundColor: "#218838", padding: 10, borderRadius: 8, width: DeviceWidth * 0.7, alignSelf: 'center', marginTop: DeviceWidth * 0.05 }}
+            onPress={() => dispatch({type : "TOGGLE_FORM"})}
         >
             <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white', textAlign: 'center' }}>+</Text>
 
