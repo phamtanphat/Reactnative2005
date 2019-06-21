@@ -46,7 +46,16 @@ const defaultWords = [
         { id: "a6", en: "Six", vn: "Sau", isMemorized: false }
     ]
 function WordReducer(state = defaultWords, action){
-    return state
+    switch(action.type){
+        case "TOGGLE_WORD" : {
+            const newWords = state.map(w => {
+                if(w.id !== action.id) return w
+                return {...w, isMemorized : !w.isMemorized}
+            })
+            return newWords
+        }
+        default : return state
+    }
 }
 function ShouldShowFormReducer(state = false , action){
     return state
