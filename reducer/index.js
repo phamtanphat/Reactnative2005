@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
-import WordReducer  from './WordReducer';
-
+import {WordReducer}  from './WordReducer';
+import { FilterModeReducer } from './FilterModeReducer';
+import { ShouldShowFormReducer } from './ShouldShowFormReducer';
 
 
 const reducer = combineReducers({
@@ -8,3 +9,4 @@ const reducer = combineReducers({
     shouldShowForm : ShouldShowFormReducer,
     filterMode : FilterModeReducer
 })
+export default reducer
