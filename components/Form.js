@@ -46,7 +46,6 @@ class Form extends PureComponent {
                                 }else{
                                     alert("Truyen du thong tin!!")
                                 }
-
                             }}
                         >
                             <Text style={{ fontSize: DeviceWidth * 0.08, color: 'white' }}>Add word</Text>
