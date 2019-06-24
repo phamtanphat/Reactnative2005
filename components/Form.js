@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Text, View, TouchableOpacity, TextInput, Dimensions } from 'react-native'
 import {connect} from 'react-redux'
 import * as action from '../action/action'
+
 const DeviceWidth = Dimensions.get("window").width
 class Form extends PureComponent {
     constructor(props) {
@@ -12,7 +13,6 @@ class Form extends PureComponent {
         }
     }
     getForm() {
-        const{dispatch} = this.props
         const { txten , txtvn} = this.state
         if (this.props.shouldShowForm) {
             return (
@@ -29,7 +29,6 @@ class Form extends PureComponent {
                             value={this.state.txtvn}
                             onChangeText={(text) => this.setState({ txtvn: text })} />
                     </View>
-
                     <View style={{ flexDirection: "row", marginTop: DeviceWidth * 0.01, alignItems: "center" }}>
                         <TouchableOpacity
                             style={{ backgroundColor: "#218838", padding: 10, borderRadius: 8, marginRight: DeviceWidth * 0.03 }}

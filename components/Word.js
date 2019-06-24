@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View  , TouchableOpacity , Dimensions} from 'react-native';
 import {connect} from 'react-redux';
+import * as action from '../action/action'
 
 class Word extends Component {
     // checkMemorized(){
@@ -27,13 +28,13 @@ class Word extends Component {
                 <View style={{flexDirection : 'row' , justifyContent : 'space-around' , paddingBottom : 5}}>
                     <TouchableOpacity
                         style={{backgroundColor : isMemorized ? "green" : "red" , padding : 10 , borderRadius : 5}}
-                        onPress={() => dispatch({type : "TOGGLE_WORD" , id })}
+                        onPress={() => this.props.onToggleWord(id)}
                     >
                         <Text style={{fontSize : 20 , color : 'white'}}>{isMemorized ? "Forgot" : "isMemorized"}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{backgroundColor : "orange" , padding : 10 , borderRadius : 5}}
-                        onPress={() => dispatch({type : "REMOVE_WORD" , id})}
+                        onPress={() => this.props.onRemoveWord(id)}
                     >
                         <Text style={{fontSize : 25 , color :  'white' }}>Remove</Text>
                     </TouchableOpacity>
@@ -43,8 +44,17 @@ class Word extends Component {
         )
     }
   }
-
-export default connect()(Word)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onToggleWord : (id) => {
+            dispatch(action.onToggleWord(id))
+        },
+        onRemoveWord : (id) => {
+            dispatch(action.onRemoveWord(id))
+        }
+    }
+}
+export default connect(null, mapDispatchToProps)(Word)
  // Auto Close Tag
 //Auto Rename Tag
 //ES7 React/Redux/GraphQL/React-Native snippets

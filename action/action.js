@@ -12,3 +12,21 @@ export const onAddword = (word) => {
         word
     }
 }
+export const onSetfiltermode = (filterMode) =>{
+   return {
+       type : actionTypes.SET_FILTER_MODE,
+       filterMode
+   }
+}
+export const onToggleWord = (id) =>{
+    return {
+        type : actionTypes.TOGGLE_WORD,
+        id
+    }
+}
+export const onRemoveWord = (id) =>{
+    return {
+        type : actionTypes.REMOVE_WORD,
+        id
+    }
+}
