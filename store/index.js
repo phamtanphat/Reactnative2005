@@ -23,10 +23,10 @@ import { combineReducers } from 'redux'
     //           })
     //           return {...state , words : newWords}
     //         }
-    //         case "REMOVE_WORD" : {           
-    //           const newWords = state.words.filter(w => w.id !== action.id)
-    //           return {...state , words : newWords}
-    //         }
+            // case "REMOVE_WORD" : {           
+            //   const newWords = state.words.filter(w => w.id !== action.id)
+            //   return {...state , words : newWords}
+            // }
     //         case "SET_FILTER_MODE" : return {...state , filterMode : action.filterMode}
     //         case "TOGGLE_FORM" : return {...state , shouldShowForm : !state.shouldShowForm}
     //         case "ADD_WORD" : {
@@ -54,14 +54,31 @@ function WordReducer(state = defaultWords, action){
             })
             return newWords
         }
+        case "REMOVE_WORD" : {           
+            const newWords = state.filter(w => w.id !== action.id)
+            return newWords
+        }
+        case "ADD_WORD" : {
+            const newWords = Object.assign([],state)
+            newWords.unshift(action.word)
+            return newWords
+        }
         default : return state
     }
 }
 function ShouldShowFormReducer(state = false , action){
-    return state
+    switch(action.type){
+        case "TOGGLE_FORM" : return !state
+        case "ADD_WORD" : return !state
+        default : return state;
+    }
+
 }
 function FilterModeReducer(state = "Show_ALL" , action){
-    return state
+    switch(action.type){
+        case "SET_FILTER_MODE" : return action.filterMode
+        default : return state;
+    }
 }
 
 const reducer = combineReducers({
