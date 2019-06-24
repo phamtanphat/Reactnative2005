@@ -21,7 +21,7 @@ export function WordReducer(state = defaultWords, action){
             const newWords = state.filter(w => w.id !== action.id)
             return newWords
         }
-        case "ADD_WORD" : {
+        case actionTypes.ADD_WORD : {
             const newWords = Object.assign([],state)
             newWords.unshift(action.word)
             return newWords
