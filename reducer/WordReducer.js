@@ -6,7 +6,8 @@ const defaultWords = [
     { id: "a5", en: "Five", vn: "Nam", isMemorized: true },
     { id: "a6", en: "Six", vn: "Sau", isMemorized: false }
 ]
-function WordReducer(state = defaultWords, action){
+
+export function WordReducer(state = defaultWords, action){
     switch(action.type){
         case "TOGGLE_WORD" : {
             const newWords = state.map(w => {
@@ -27,3 +28,4 @@ function WordReducer(state = defaultWords, action){
         default : return state
     }
 }
+
