@@ -1,7 +1,7 @@
 // ctrl + space : goi y code
 import React, { Component } from 'react'
 import { View, ScrollView, } from 'react-native'
-import Word from './Word';
+import WordContainer from  '../container/WordContainer'
 import Fillter from './Fillter';
 import Form from './Form';
 import {connect} from 'react-redux'
@@ -22,7 +22,7 @@ class List extends Component {
                         <Form/>
                         <Fillter />
                         {this.Fitered.map(word => 
-                            <Word
+                            <WordContainer
                                 word={word} 
                                 key={word.id}/>)}
                     </View>

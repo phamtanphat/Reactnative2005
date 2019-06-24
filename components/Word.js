@@ -1,19 +1,10 @@
 import React, {Component} from 'react';
 import {Text, View  , TouchableOpacity , Dimensions} from 'react-native';
-import {connect} from 'react-redux';
-import * as action from '../action/action'
 
-class Word extends Component {
-    // checkMemorized(){
-    //     if(this.props.word.isMemorized){
-    //         return <Text style={{color : 'red' , fontSize : 20}}>----</Text>
-    //     }else{
-    //         return <Text style={{color : 'red' , fontSize : 20}}>{this.props.word.vn}</Text>
-    //     }
-    // }
+
+export default class Word extends Component {
     render() {
         const {en , vn , isMemorized , id} = this.props.word
-        const { dispatch }  = this.props;
         const DeviceWidth = Dimensions.get('window').width
         const DeviceHeight = Dimensions.get('window').height
         return (
@@ -44,17 +35,7 @@ class Word extends Component {
         )
     }
   }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onToggleWord : (id) => {
-            dispatch(action.onToggleWord(id))
-        },
-        onRemoveWord : (id) => {
-            dispatch(action.onRemoveWord(id))
-        }
-    }
-}
-export default connect(null, mapDispatchToProps)(Word)
+
  // Auto Close Tag
 //Auto Rename Tag
 //ES7 React/Redux/GraphQL/React-Native snippets
