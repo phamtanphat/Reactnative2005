@@ -1,3 +1,4 @@
+import * as actionTypes from '../action/actionTypes'
 const defaultWords = [
     { id: "a1", en: "One", vn: "Mot", isMemorized: true },
     { id: "a2", en: "Two", vn: "Hai", isMemorized: false },
@@ -9,14 +10,14 @@ const defaultWords = [
 
 export function WordReducer(state = defaultWords, action){
     switch(action.type){
-        case "TOGGLE_WORD" : {
+        case actionTypes.TOGGLE_WORD : {
             const newWords = state.map(w => {
                 if(w.id !== action.id) return w
                 return {...w, isMemorized : !w.isMemorized}
             })
             return newWords
         }
-        case "REMOVE_WORD" : {           
+        case actionTypes.REMOVE_WORD : {           
             const newWords = state.filter(w => w.id !== action.id)
             return newWords
         }
