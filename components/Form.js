@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react'
 import { Text, View, TouchableOpacity, TextInput, Dimensions } from 'react-native'
-import {connect} from 'react-redux'
-import * as action from '../action/action'
+
 
 const DeviceWidth = Dimensions.get("window").width
-class Form extends PureComponent {
+export default class Form extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -78,17 +77,3 @@ class Form extends PureComponent {
         )
     }
 }
-const mapStateToProps = function(state){
-    return {shouldShowForm : state.shouldShowForm}
-}
-const mapDispatchToProps = function(dispatch){
-    return {
-        onToggleForm : () =>{
-            dispatch(action.onToggleForm())
-        },
-        onAddword : (word) => {
-            dispatch(action.onAddword(word))
-        }
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Form)

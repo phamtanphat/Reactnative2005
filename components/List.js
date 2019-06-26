@@ -2,10 +2,11 @@
 import React, { Component } from 'react'
 import { View, ScrollView, } from 'react-native'
 import WordContainer from  '../container/WordContainer'
-import Fillter from './Fillter';
-import Form from './Form';
-import {connect} from 'react-redux'
-class List extends Component {
+import FormContainer from '../container/FormContainer';
+import FillterContainer from '../container/FillterContainer';
+
+
+export default class List extends Component {
     get Fitered(){
         return this.props.words.filter(w => {
             if (this.props.filterMode === 'Show_ALL') return true
@@ -19,8 +20,8 @@ class List extends Component {
             <View style={{ flex: 1 }}>
                 <ScrollView>
                     <View style={{ flex: 1 }}>
-                        <Form/>
-                        <Fillter />
+                        <FormContainer/>
+                        <FillterContainer />
                         {this.Fitered.map(word => 
                             <WordContainer
                                 word={word} 
@@ -31,12 +32,3 @@ class List extends Component {
         )
     }
 }
-const mapStateToprops = (state) => {
-    return (
-        {
-            words : state.words , 
-            filterMode : state.filterMode,
-        }
-    )
-}
-export default connect(mapStateToprops)(List)
