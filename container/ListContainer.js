@@ -8,5 +8,12 @@ const mapStateToprops = (state) => {
         }
     )
 }
+const mapDispatchToProps = (dispatch) =>{
+    return {
+        getallWords : () =>{
+            
+        }
+    }
+}
 const ListContainer = connect(mapStateToprops)(List)
 export default ListContainer

@@ -2,11 +2,17 @@
 import React, { Component } from 'react'
 import { View, ScrollView, } from 'react-native'
 import WordContainer from  '../container/WordContainer'
-import FormContainer from '../container/FormContainer';
-import FillterContainer from '../container/FillterContainer';
-
+import FormContainer from '../container/FormContainer'
+import FillterContainer from '../container/FillterContainer'
+import axios from 'axios'
 
 export default class List extends Component {
+    componentWillMount(){
+        const url = "https://serverwords.herokuapp.com/word"
+        const data = axios.get(url)
+        .then(response => console.log(response))
+        .catch(error => console.log(error))
+    }
     get Fitered(){
         return this.props.words.filter(w => {
             if (this.props.filterMode === 'Show_ALL') return true
