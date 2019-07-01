@@ -10,9 +10,10 @@ export default class List extends Component {
     componentWillMount(){
         const url = "https://serverwords.herokuapp.com/word"
         const data = axios.get(url)
-        .then(response => console.log(response))
+        .then(response => console.log(response.data.words))
         .catch(error => console.log(error))
     }
+
     get Fitered(){
         return this.props.words.filter(w => {
             if (this.props.filterMode === 'Show_ALL') return true
