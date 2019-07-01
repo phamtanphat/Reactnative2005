@@ -30,3 +30,9 @@ export const onRemoveWord = (id) =>{
         id
     }
 }
+export const onsetallwords = (words) =>{
+    return {
+        type : actionTypes.SET_ALL_WORDS,
+        words
+    }
+}

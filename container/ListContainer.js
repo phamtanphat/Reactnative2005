@@ -11,7 +11,9 @@ const mapStateToprops = (state) => {
 const mapDispatchToProps = (dispatch) =>{
     return {
         getallWords : () =>{
-            
+            const url = "https://serverwords.herokuapp.com/word"
+            axios.get(url)
+            .then(response => dispatch())
         }
     }
 }
