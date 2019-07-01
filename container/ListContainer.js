@@ -1,5 +1,7 @@
 import {connect} from 'react-redux'
 import List  from '../components/List'
+import * as action from '../action/action'
+import axios from 'axios'
 const mapStateToprops = (state) => {
     return (
         {
@@ -13,9 +15,9 @@ const mapDispatchToProps = (dispatch) =>{
         getallWords : () =>{
             const url = "https://serverwords.herokuapp.com/word"
             axios.get(url)
-            .then(response => dispatch())
+            .then(response => dispatch(action.onsetallwords(response.data.words)))
         }
     }
 }
-const ListContainer = connect(mapStateToprops)(List)
+const ListContainer = connect(mapStateToprops ,mapDispatchToProps)(List)
 export default ListContainer

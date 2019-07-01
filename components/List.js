@@ -4,11 +4,11 @@ import { View, ScrollView, } from 'react-native'
 import WordContainer from  '../container/WordContainer'
 import FormContainer from '../container/FormContainer'
 import FillterContainer from '../container/FillterContainer'
-import axios from 'axios'
+
 
 export default class List extends Component {
     componentWillMount(){
-       
+       this.props.getallWords();
     }
 
     get Fitered(){
@@ -29,7 +29,7 @@ export default class List extends Component {
                         {this.Fitered.map(word => 
                             <WordContainer
                                 word={word} 
-                                key={word.id}/>)}
+                                key={word._id}/>)}
                     </View>
                 </ScrollView>
             </View>

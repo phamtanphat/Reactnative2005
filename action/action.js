@@ -36,3 +36,5 @@ export const onsetallwords = (words) =>{
         words
     }
 }
+
+
