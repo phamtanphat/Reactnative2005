@@ -32,14 +32,8 @@ export default class Form extends PureComponent {
                         <TouchableOpacity
                             style={{ backgroundColor: "#218838", padding: 10, borderRadius: 8, marginRight: DeviceWidth * 0.03 }}
                             onPress={() => {
-                                if(txten.length > 0 && txtvn.length > 0){
-                                    const word = {
-                                        id : Math.random()+ "",
-                                        en : txten,
-                                        vn : txtvn,
-                                        isMemorized : false
-                                    }
-                                    this.props.onAddword(word)
+                                if(txten.trim().length > 0 && txtvn.trim().length > 0){
+                                    this.props.onAddword(txten , txtvn)
                                     this.setState({txten : '' , txtvn : ''})
                                 }else{
                                     alert("Truyen du thong tin!!")

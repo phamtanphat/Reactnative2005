@@ -11,11 +11,10 @@ const mapDispatchToProps = (dispatch) => {
             .then(response => dispatch({type : "TOGGLE_WORD" , word : response.data.word}))
         },
         onRemoveWord : (_id) => {
-            const url = "https://serverwords.herokuapp.com/wor/"
+            const url = "https://serverwords.herokuapp.com/word/"
             axios.delete(url + _id )
             .then(response => dispatch({type : "REMOVE_WORD" , word : response.data.word}))
             .catch(error => dispatch({type : "ERROR_WORD" , error : error}))
-
         }
     }
 }
