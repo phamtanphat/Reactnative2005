@@ -14,7 +14,7 @@ export function WordReducer(state = [], action){
             return newWords
         }
         case actionTypes.REMOVE_WORD : {           
-            const newWords = state.filter(w => w.id !== action.id)
+            const newWords = state.filter(w => w._id !== action.word._id)
             return newWords
         }
         case actionTypes.ADD_WORD : {

@@ -9,10 +9,12 @@ const mapDispatchToProps = (dispatch) => {
             const url = "https://serverwords.herokuapp.com/word/"
             axios.put(url + _id , {isMemorized})
             .then(response => dispatch({type : "TOGGLE_WORD" , word : response.data.word}))
-
         },
-        onRemoveWord : (id) => {
-            dispatch(action.onRemoveWord(id))
+        onRemoveWord : (_id) => {
+            const url = "https://serverwords.herokuapp.com/word/"
+            axios.delete(url + _id )
+            .then(response => dispatch({type : "REMOVE_WORD" , word : response.data.word}))
+
         }
     }
 }
