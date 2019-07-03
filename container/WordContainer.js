@@ -8,8 +8,8 @@ const mapDispatchToProps = (dispatch) => {
         onToggleWord : (_id , isMemorized) => {
             const url = "https://serverwords.herokuapp.com/word/"
             axios.put(url + _id , {isMemorized})
-            .then(response => console.log(response))
-            // dispatch(action.onToggleWord(_id))
+            .then(response => dispatch({type : "TOGGLE_WORD" , word : response.data.word}))
+
         },
         onRemoveWord : (id) => {
             dispatch(action.onRemoveWord(id))

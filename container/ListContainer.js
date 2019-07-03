@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) =>{
         getallWords : () =>{
             const url = "https://serverwords.herokuapp.com/word"
             axios.get(url)
-            .then(response => dispatch(action.onsetallwords(response.data.words)))
+            .then(response => dispatch({type : "SET_ALL_WORDS" , words : response.data.words}))
         }
     }
 }

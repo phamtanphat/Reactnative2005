@@ -8,8 +8,8 @@ export function WordReducer(state = [], action){
         }
         case actionTypes.TOGGLE_WORD : {
             const newWords = state.map(w => {
-                if(w.id !== action.id) return w
-                return {...w, isMemorized : !w.isMemorized}
+                if(w._id !== action.word._id) return w
+                return action.word
             })
             return newWords
         }
