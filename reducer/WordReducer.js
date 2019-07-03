@@ -13,6 +13,10 @@ export function WordReducer(state = [], action){
             })
             return newWords
         }
+        case "ERROR_WORD" : {
+            alert(action.error.message)
+            return state
+        }
         case actionTypes.REMOVE_WORD : {           
             const newWords = state.filter(w => w._id !== action.word._id)
             return newWords
