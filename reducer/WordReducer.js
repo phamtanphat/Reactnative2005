@@ -1,6 +1,5 @@
 import * as actionTypes from '../action/actionTypes'
 
-
 export function WordReducer(state = [], action){
     switch(action.type){
         case actionTypes.SET_ALL_WORDS : {

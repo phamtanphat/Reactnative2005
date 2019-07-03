@@ -15,7 +15,6 @@ const mapDispatchToProps = function(dispatch){
             const url = "https://serverwords.herokuapp.com/word/"
             axios.post(url ,{en : txten , vn : txtvn}) 
             .then(response => dispatch({type : "ADD_WORD" , word : response.data.word}))
-
         }
     }
 }
